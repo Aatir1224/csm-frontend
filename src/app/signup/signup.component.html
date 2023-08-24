@@ -1,0 +1,61 @@
+<div class="page page-center">
+  <div class="container container-tight py-4">
+    <div class="text-center mb-4">
+      <a href="." class="navbar-brand navbar-brand-autodark"
+        ><img src="./static/logo.svg" height="36" alt=""
+      /></a>
+    </div>
+    <div class="card card-md">
+      <div class="card-body">
+        <h2 class="h2 text-center mb-4">Sign Up</h2>
+        <form action="./" method="get" autocomplete="off" novalidate>
+          <div class="mb-3">
+            <label class="form-label">Full Name</label>
+            <input
+              type="email"
+              class="form-control"
+              placeholder="your@email.com"
+              autocomplete="off"
+              [(ngModel)]="data.fullName"
+              name="email"
+            />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email address</label>
+            <input
+              type="email"
+              class="form-control"
+              placeholder="your@email.com"
+              autocomplete="off"
+              [(ngModel)]="data.email"
+              name="email"
+            />
+          </div>
+          <div class="mb-2">
+            <label class="form-label"> Password </label>
+            <div class="input-group input-group-flat">
+              <input
+                type="password"
+                class="form-control"
+                placeholder="Your password"
+                autocomplete="off"
+                [(ngModel)]="data.password"
+                name="password"
+              />
+            </div>
+          </div>
+
+          <div class="form-footer">
+            <button
+              type="submit"
+              class="btn btn-primary w-100"
+              (click)="signup()"
+            >
+              Sign in
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

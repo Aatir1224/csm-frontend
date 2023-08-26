@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:8000/api/v1',
+  apiUrl: 'https://csm-api-dev-1fd53debf542.herokuapp.com/api/v1',
   stripPublishKey:
     'pk_test_51HVtABAQuh2nPw0o2yMw0hL7K4zVDCuohfjSA56yrhYhDZlXDpKg39RP6g36IfmTRr1VKGT5Gg7wcLuQUbJkmSnq00nD5cDuOK',
   siteKey: '6LfKNi0cAAAAACeYwFRY9_d_qjGhpiwYUo5gNW5-',

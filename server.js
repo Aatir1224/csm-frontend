@@ -8,4 +8,4 @@ app.get("/*", (req, res) => {
   res.sendFile(__dirname + "/dist/csm-frontend/index.html");
 });
 
-app.listen(PORT);
+app.listen(PORT || 4200);

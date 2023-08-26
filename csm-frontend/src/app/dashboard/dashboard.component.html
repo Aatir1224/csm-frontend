@@ -1,0 +1,147 @@
+<app-header></app-header>
+
+<div class="page">
+  <div class="content">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="card">
+            <div class="card-body" *ngIf="type == 'free'">
+              <h2 class="card-title">Upload Single Image</h2>
+              <form enctype="multipart/form-data">
+                <div class="mb-3">
+                  <label class="form-label">Select Image</label>
+                  <input
+                    type="file"
+                    class="form-control"
+                    name="image"
+                    [(ngModel)]="photo"
+                    (change)="handleFileInput($event)"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  [disabled]="!photo"
+                  (click)="uploadImage()"
+                >
+                  Upload
+                </button>
+              </form>
+            </div>
+
+            <div class="card-body" *ngIf="type == 'pro'">
+              <h2 class="card-title">Upload Multiple Image</h2>
+              <form enctype="multipart/form-data">
+                <div class="mb-3">
+                  <label class="form-label">Select Image</label>
+                  <input
+                    type="file"
+                    multiple
+                    class="form-control"
+                    name="image"
+                    [(ngModel)]="photo"
+                    (change)="handleFileInputMutiple($event)"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  [disabled]="!files.length"
+                  (click)="UploadMutipleImages()"
+                >
+                  Upload
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div>
+            <table class="toggle-table mt-5">
+              <tr>
+                <td class="label-cell">Toggle Subscription:</td>
+                <td class="toggle-cell">
+                  <label class="toggle-label">
+                    <input
+                      type="checkbox"
+                      class="toggle-checkbox"
+                      [(ngModel)]="isSubscribed"
+                      [value]="isSubscribed"
+                      (change)="handleSubscriptionToggle($event.target)"
+                    />
+                    <span class="toggle-slider"></span>
+                  </label>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="card" *ngIf="type == 'free'">
+            <div class="card-body">
+              <h5 class="card-title">Free Tier</h5>
+              <p class="card-text">Upload 1 image at a time</p>
+              <p class="card-text">1 image per hour</p>
+              <p>
+                if you want unlimited access. Please subscribe to the Pro plan
+                by clicking on toggle subscription button
+              </p>
+            </div>
+          </div>
+
+          <div class="card" *ngIf="type == 'pro'">
+            <div class="card-body">
+              <h5 class="card-title">Pro Tier</h5>
+              <p class="card-text">Upload multiple images simultaneously</p>
+              <p class="card-text">No time-based constraints</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="mt-4 p-4"
+        *ngIf="isSubscribed && type == 'free'"
+        ngxStripeCardGroup
+        [elementsOptions]="elementsOptions"
+      >
+        <h2 class="text-center">Pay $5 for Pro version</h2>
+        <form class="checkout">
+          <ngx-stripe-card
+            [options]="cardOptions"
+            [elementsOptions]="elementsOptions"
+            (change)="onFormChange($event)"
+          ></ngx-stripe-card>
+          <button
+            (click)="createToken()"
+            type="submit"
+            [disabled]="disableBtn"
+            class="btn btn-primary mt-3 text-center"
+          >
+            Submit Payment
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="container">
+      <div *ngIf="user?.userImages?.length !== 0; else elseBlock">
+        <h1>Image View</h1>
+        <div class="row">
+          <div class="flex-container">
+            <div class="image-item" *ngFor="let image of user?.userImages">
+              <img src="{{ image.imageUrl }}" class="img-fluid" />
+              <a [href]="image.imageUrl" download="image.jpeg" target="_blank">
+                <i class="fa fa-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ng-template #elseBlock>
+        <p class="text-center">User has not uploaded any images yet.</p>
+      </ng-template>
+    </div>
+  </div>
+</div>

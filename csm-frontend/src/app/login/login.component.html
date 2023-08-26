@@ -1,0 +1,97 @@
+<div class="page page-center">
+  <div class="container container-tight py-4">
+    <div class="text-center mb-4">
+      <a href="." class="navbar-brand navbar-brand-autodark"
+        ><img src="./static/logo.svg" height="36" alt=""
+      /></a>
+    </div>
+    <div class="card card-md">
+      <div class="card-body">
+        <h2 class="h2 text-center mb-4">Login to your account</h2>
+        <form autocomplete="off" novalidate #form="ngForm">
+          <div class="mb-3">
+            <label class="form-label">Username/Email address</label>
+            <input
+              type="email"
+              class="form-control"
+              placeholder="your@email.com"
+              autocomplete="off"
+              name="email"
+              #email="ngModel"
+              [(ngModel)]="data.email"
+            />
+            <div
+              *ngIf="email.invalid && (email.dirty || email.touched)"
+              class="invalid-feedback"
+            >
+              <div *ngIf="email.errors?.['required']">
+                This field is required.
+              </div>
+            </div>
+          </div>
+          <div class="mb-2">
+            <label class="form-label"> Password </label>
+            <div class="input-group input-group-flat">
+              <input
+                type="password"
+                class="form-control"
+                placeholder="Your password"
+                autocomplete="off"
+                #password="ngModel"
+                name="password"
+                [(ngModel)]="data.password"
+              />
+              <div
+                *ngIf="password.invalid && (password.dirty || password.touched)"
+                class="invalid-feedback"
+              >
+                <div *ngIf="password.errors?.['required']">
+                  This field is required.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <re-captcha
+            id="recaptcha"
+            name="recaptcha"
+            #recaptcha="ngModel"
+            [(ngModel)]="token"
+            required
+            [class.is-invalid]="
+              recaptcha.invalid && (recaptcha.dirty || recaptcha.touched)
+            "
+          ></re-captcha>
+          <div
+            *ngIf="recaptcha.invalid && (recaptcha.dirty || recaptcha.touched)"
+            class="invalid-feedback"
+          >
+            <div *ngIf="recaptcha.errors?.['required']">
+              This field is required.
+            </div>
+          </div>
+
+          <div class="form-footer m-1">
+            <button
+              type="submit"
+              class="btn btn-primary w-100"
+              (click)="send(form)"
+              [disabled]="!form.valid || disableBtn"
+            >
+              Login
+            </button>
+          </div>
+          <div class="form-footer m-1">
+            <button
+              type="submit"
+              class="btn btn-primary w-100"
+              routerLink="/signup"
+            >
+              Sign Up
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

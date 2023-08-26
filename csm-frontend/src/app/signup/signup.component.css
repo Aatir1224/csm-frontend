@@ -1,0 +1,13 @@
+.form-group {
+  margin-bottom: 20px;
+}
+
+#profileImage {
+  display: block;
+  margin-top: 5px;
+}
+
+#profileImagePreview {
+  max-width: 200px;
+  margin-top: 10px;
+}

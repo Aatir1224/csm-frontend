@@ -1,0 +1,150 @@
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.image-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.image-item img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+.card {
+  border: 1px solid #ccc;
+  margin: 20px;
+  padding: 10px;
+  width: 300px;
+  cursor: pointer;
+}
+
+.card-header {
+  background-color: #f0f0f0;
+  padding: 5px;
+  font-weight: bold;
+}
+
+.card-details {
+  padding: 10px;
+}
+
+.toggle-table {
+  width: 300px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+}
+
+.label-cell {
+  padding: 10px;
+  border-right: 1px solid #ccc;
+}
+
+.toggle-cell {
+  padding: 10px;
+  text-align: center;
+}
+
+.toggle-label {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+  background-color: #ccc;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.toggle-checkbox {
+  display: none;
+}
+
+.toggle-slider {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 26px;
+  height: 26px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.toggle-checkbox:checked + .toggle-slider {
+  transform: translateX(30px);
+}
+
+/* Optional: Style the slider's appearance when checked */
+.toggle-checkbox:checked + .toggle-slider::before {
+  content: "\2713"; /* Checkmark icon */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #2ecc71;
+  font-size: 18px;
+}
+
+form.checkout {
+  max-width: 500px;
+  margin: 2rem auto;
+  text-align: center;
+  border: 2px solid #eee;
+  border-radius: 8px;
+  padding: 1rem 2rem;
+  background: white;
+
+  font-family: monospace;
+  color: #525252;
+  font-size: 1.1rem;
+}
+
+form.checkout button {
+  padding: 0.5rem 1rem;
+  color: white;
+  background: coral;
+  border: none;
+  border-radius: 4px;
+  margin-top: 1rem;
+}
+
+form.checkout button:active {
+  background: rgb(165, 76, 43);
+}
+#card-element {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+a {
+  position: absolute;
+  /* bottom: 10px;
+  left: 50%; */
+  top: 10px;
+  right: 5px;
+  transform: translateX(-50%);
+  background-color: green;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #333;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.image-item {
+  flex: 0 0 calc(33.33% - 20px);
+  margin: 10px;
+}

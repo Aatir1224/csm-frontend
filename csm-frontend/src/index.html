@@ -1,13 +1,56 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>CsmFrontend</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <app-root></app-root>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>CSM Frontend</title>
+    <!-- CSS files -->
+    <link href="./assets/dist/css/tabler.min.css?1684106062" rel="stylesheet" />
+    <link href="./assets/dist/css/demo.min.css?1684106062" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.2.0/css/all.css"
+    />
+    <style>
+      @import url("https://rsms.me/inter/inter.css");
+      :root {
+        --tblr-font-sans-serif: "Inter Var", -apple-system, BlinkMacSystemFont,
+          San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+      }
+      body {
+        font-feature-settings: "cv03", "cv04", "cv11";
+      }
+    </style>
+    <link
+      href="https://fonts.googleapis.com/css?family=Titillium+Web"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://js.stripe.com/v3/"></script>
+  </head>
+  <body class="ig-typography ig-scrollbar mat-typography">
+    <app-root></app-root>
+  </body>
+  <script src="./assets/dist/js/demo-theme.min.js?1684106062"></script>
+
+  <!-- Tabler Core -->
+  <script src="./assets/dist/js/tabler.min.js?1684106062" defer></script>
+  <script src="./assets/dist/js/demo.min.js?1684106062" defer></script>
+  <script
+    src="./assets/dist/libs/litepicker/dist/litepicker.js?1684106062"
+    defer
+  ></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 </html>

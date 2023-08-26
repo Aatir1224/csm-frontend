@@ -1,0 +1,147 @@
+<div class="page page-center">
+  <div class="container container-tight py-4">
+    <div class="text-center mb-4">
+      <a href="." class="navbar-brand navbar-brand-autodark"
+        ><img src="./static/logo.svg" height="36" alt=""
+      /></a>
+    </div>
+    <div class="card card-md">
+      <div class="card-body">
+        <h2 class="h2 text-center mb-4">Sign Up</h2>
+        <!-- <form action="./" method="get" autocomplete="off" novalidate>
+          <div class="mb-3">
+            <label class="form-label">Full Name</label>
+            <input
+              type="email"
+              class="form-control"
+              placeholder="Your FullName"
+              autocomplete="off"
+              [(ngModel)]="data.fullName"
+              name="email"
+            />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email address</label>
+            <input
+              type="email"
+              class="form-control"
+              placeholder="your@email.com"
+              autocomplete="off"
+              [(ngModel)]="data.email"
+              name="email"
+            />
+          </div>
+          <div class="mb-2">
+            <label class="form-label"> Password </label>
+            <div class="input-group input-group-flat">
+              <input
+                type="password"
+                class="form-control"
+                placeholder="Your password"
+                autocomplete="off"
+                [(ngModel)]="data.password"
+                name="password"
+              />
+            </div>
+          </div>
+
+          <div class="form-footer">
+            <button
+              type="submit"
+              class="btn btn-primary w-100"
+              (click)="signup()"
+            >
+              Sign Up
+            </button>
+          </div>
+        </form> -->
+
+        <form
+          #registrationForm="ngForm"
+          (ngSubmit)="signup()"
+          enctype="multipart/form-data"
+        >
+          <div class="form-group">
+            <label for="name" class="form-label">Name</label>
+            <div class="input-group input-group-flat">
+              <input
+                type="text"
+                id="name"
+                class="form-control"
+                name="name"
+                [(ngModel)]="data.fullName"
+                required
+                #name="ngModel"
+              />
+              <div
+                *ngIf="name.invalid && (name.dirty || name.touched)"
+                class="error-message"
+              >
+                <div *ngIf="name.errors?.['required']">
+                  Full Name is required.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            <div class="input-group input-group-flat">
+              <input
+                type="email"
+                id="email"
+                class="form-control"
+                name="email"
+                [(ngModel)]="data.email"
+                required
+                email
+                #email="ngModel"
+              />
+              <div
+                *ngIf="email.invalid && (email.dirty || email.touched)"
+                class="error-message"
+              >
+                <div *ngIf="email.errors?.['required']">Email is required.</div>
+                <div *ngIf="email.errors?.['email']">Invalid email format.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="password" class="form-label">Password</label>
+            <div class="input-group input-group-flat">
+              <input
+                type="password"
+                id="password"
+                class="form-control"
+                name="password"
+                [(ngModel)]="data.password"
+                required
+                #password="ngModel"
+                min="5"
+              />
+              <div
+                *ngIf="password.invalid && (password.dirty || password.touched)"
+                class="error-message"
+              >
+                <div *ngIf="password.errors?.['required']">
+                  Password is required.
+                </div>
+                <div *ngIf="password.errors?.['minlength']">
+                  Password must be at least 8 characters long.
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            class="btn btn-primary w-100 mt-4"
+            type="submit"
+            [disabled]="!registrationForm.form.valid || disableBtn"
+          >
+            Register
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -12,7 +12,6 @@ import {
   RecaptchaSettings,
 } from 'ng-recaptcha';
 import { NgxStripeModule } from 'ngx-stripe';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from 'ngx-spinner';
 
@@ -41,7 +40,6 @@ import { LoadingInterceptor } from 'src/services/loading.interceptor';
     ReactiveFormsModule,
     RecaptchaFormsModule,
     RecaptchaModule,
-    NgbModule,
     NgxSpinnerModule,
     ToastrModule.forRoot(),
     NgxStripeModule.forRoot(environment.stripPublishKey),
